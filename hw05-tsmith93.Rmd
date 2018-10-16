@@ -1,0 +1,19 @@
+---
+title: "how05-tsmith93"
+author: "Thomas Smith"
+date: '2018-10-15'
+output: guthub_document
+---
+
+###Loading packages
+
+If you haven't already done so, download both gapminder and tidyverse using `install.packages()` 
+
+Next load gapminder, tidyverse and knitr:
+
+```{r Load tidyverse, gapminder, knitr}
+#suppressPackageStartupMessages stops unecessary messages from popping up
+suppressPackageStartupMessages(library(tidyverse))
+suppressPackageStartupMessages(library(gapminder))
+suppressPackageStartupMessages(library(knitr))
+```
