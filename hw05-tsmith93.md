@@ -561,7 +561,7 @@ ggsave("scandinavia_plot.jpg", scandinavia_plot)
 
     ## Saving 7 x 5 in image
 
-![scandinavia plot](/Users/thomassmith/Documents/MSc%20courses/STAT%20545A/Assignment/hw05-tsmith93/hw05-tsmith93/scandinavia_plot.jpg)
+![scandinavia plot](https://github.com/STAT545-UBC-students/hw05-tsmith93/blob/master/scandinavia_plot.jpg)
 
 Lets make it look nicer!
 
