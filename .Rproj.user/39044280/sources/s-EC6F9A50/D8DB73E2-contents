@@ -428,9 +428,12 @@ What an efficient way of putting all the data together. Try moving the figure ar
 
 #### 3.3 Convert a ggplot to plotly
 
+We will convert it to a plotly graph using `ggplotly()`. As this appears as huge chunks of code, we will describe the differences now. With ggplot, you are given basic figures. With plotly, you are able to be much more interactive with your plots. Yuo can zoom in and zoom out, and look at what the exact values are for points by hoverign your mouse over them.
+
 ```{r}
+#Again, we will comment out this for the users benefit!
 #Converting previous plot to plotly figure
-(scandinavia_plotly <- ggplotly(scandinavia_plot))
+#(scandinavia_plotly <- ggplotly(scandinavia_plot))
 ```
 
 ###Part 4: Writing figures to file

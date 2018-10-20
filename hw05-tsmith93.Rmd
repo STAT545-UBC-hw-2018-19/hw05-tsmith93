@@ -360,6 +360,7 @@ Lets first make a basic plot of life expectancy over time for these countries:
   ggtitle("Life Expectancies in Scandinavia (1952-2007)") +
   geom_smooth(method = lm, se = FALSE, aes(colour = country)))
 ```
+
 I think we can make the figure look much cleaner with a few changes to the code.
 
 ```{r}
@@ -378,7 +379,6 @@ scandinavia %>%
   #clean up the aesthetic of the plot!
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_blank(),
   axis.line = element_line(colour = "black")) 
-
 ```
 
 Wow, that thing is way nicer to look at! Lets do the same plot, but this time use GDP per capita on the y axis.
@@ -408,34 +408,37 @@ Wow, another great looking plot. But I think we can display the data from these 
 
 #### 3.2 plotly figures
 
-As plotly figures seem to embed oddly in github, please look at [this](https://plot.ly/~tsmith93/5/#/) link for my plotly
+Warning: As plotly figures seem to embed oddly in github, please look at [this](https://plot.ly/~tsmith93/5/#/) link for my plotly. I have also commented out the code so that this page is easier for you to scroll through.
 
 ```{r}
 #select scandinavia data
-(three_axes <- plot_ly(scandinavia, 
+#(three_axes <- plot_ly(scandinavia, 
 #assign a variable to the x, y, and z axes        
-        x = ~year, 
-        y = ~lifeExp, 
-        z = ~gdpPercap,
+        #x = ~year, 
+        #y = ~lifeExp, 
+        #z = ~gdpPercap,
 #select the type of plotly plot
-        type = "scatter3d",
+        #type = "scatter3d",
 #specify the type of markers and look of them
-        mode = "markers",
-        opacity = 0.2))
+        #mode = "markers",
+        #opacity = 0.2))
 ```
 
 What an efficient way of putting all the data together. Try moving the figure around with your mouse! Its interactive!
 
 #### 3.3 Convert a ggplot to plotly
 
+We will convert it to a plotly graph using `ggplotly()`. As this appears as huge chunks of code, we will describe the differences now. With ggplot, you are given basic figures. With plotly, you are able to be much more interactive with your plots. Yuo can zoom in and zoom out, and look at what the exact values are for points by hoverign your mouse over them.
+
 ```{r}
+#Again, we will comment out this for the users benefit!
 #Converting previous plot to plotly figure
-(scandinavia_plotly <- ggplotly(scandinavia_plot))
+#(scandinavia_plotly <- ggplotly(scandinavia_plot))
 ```
 
 ###Part 4: Writing figures to file
 
-Here we will use `ggsave()` to make image files. We will explore changing the content of th images, as well as the file type
+Here we will use `ggsave()` to make image files. We will explore changing the content of the images, as well as the file type
 
 #### 4.1 Save to .jpg
 
