@@ -408,7 +408,7 @@ Wow, another great looking plot. But I think we can display the data from these 
 
 #### 3.2 plotly figures
 
-Warning: As plotly figures seem to embed oddly in github, please look at [this](https://plot.ly/~tsmith93/5/#/) link for my plotly. I have also commented out the code so that this page is easier for you to scroll through.
+Warning: As plotly figures seem to embed oddly in github, please look at [this](https://plot.ly/~tsmith93/11/#/) link for my plotly figure. I have also commented out the code so that this page is easier for you to scroll through.
 
 ```{r}
 #select scandinavia data
@@ -428,13 +428,15 @@ What an efficient way of putting all the data together. Try moving the figure ar
 
 #### 3.3 Convert a ggplot to plotly
 
-We will convert it to a plotly graph using `ggplotly()`. As this appears as huge chunks of code, we will describe the differences now. With ggplot, you are given basic figures. With plotly, you are able to be much more interactive with your plots. Yuo can zoom in and zoom out, and look at what the exact values are for points by hoverign your mouse over them.
+We will convert it to a plotly graph using `ggplotly()`. As this appears as huge chunks of code, we will describe the differences now. With ggplot, you are given basic figures. With plotly, you are able to be much more interactive with your plots. You can zoom in and zoom out, and look at what the exact values are for points by hoverign your mouse over them.
 
 ```{r}
 #Again, we will comment out this for the users benefit!
 #Converting previous plot to plotly figure
-#(scandinavia_plotly <- ggplotly(scandinavia_plot))
+#scandinavia_plotly <- ggplotly(scandinavia_plot)
 ```
+
+As it appears only one plotly figure could be included in this file, I was not able to add a link to this figure.
 
 ###Part 4: Writing figures to file
 

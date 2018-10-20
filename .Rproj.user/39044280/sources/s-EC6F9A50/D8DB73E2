@@ -2,18 +2,18 @@
     "collab_server" : "",
     "contents" : "",
     "created" : 1539727756592.000,
-    "dirty" : false,
+    "dirty" : true,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "1739998320",
+    "hash" : "0",
     "id" : "D8DB73E2",
     "lastKnownWriteTime" : 1540021493,
-    "last_content_update" : 1540021493088,
+    "last_content_update" : 1540022267069,
     "path" : "~/Documents/MSc courses/STAT 545A/Assignment/hw05-tsmith93/hw05-tsmith93/hw05-tsmith93.Rmd",
     "project_path" : "hw05-tsmith93.Rmd",
     "properties" : {
-        "cursorPosition" : "433,55",
-        "scrollLine" : "431"
+        "cursorPosition" : "438,113",
+        "scrollLine" : "425"
     },
     "relative_order" : 2,
     "source_on_save" : false,
