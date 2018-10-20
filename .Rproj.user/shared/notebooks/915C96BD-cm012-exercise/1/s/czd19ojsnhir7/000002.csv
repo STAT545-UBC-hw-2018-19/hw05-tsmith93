@@ -1,0 +1,3 @@
+"0","gap_asia_2007 %>% "
+"0","  mutate(country = fct_reorder(country, lifeExp)) %>% "
+"0","  ggplot(aes(lifeExp, country)) + geom_point()"

@@ -1,0 +1,10 @@
+"0","```r
+str(lotr2)
+
+```"
+"1","'data.frame':	3 obs. of  4 variables:
+ $ Film  : Factor w/ 1 level \"The Return Of The King\": 1 1 1
+ $ Race  : Factor w/ 3 levels \"Elf\",\"Hobbit\",..: 1 2 3
+ $ Female: int  183 2 268
+ $ Male  : int  510 2673 2459
+"

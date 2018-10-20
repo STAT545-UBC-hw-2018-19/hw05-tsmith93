@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1539903325637.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "B40531D1",
+    "lastKnownWriteTime" : 1538549782,
+    "last_content_update" : 1539903331511,
+    "path" : "~/Documents/MSc courses/STAT 545A/Assignment/hw03-tsmith93/hw03-tsmith93/hw03-tsmith93.Rmd",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "121,44",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

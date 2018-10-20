@@ -1,0 +1,7 @@
+"0","saveRDS(asia_reorder, '/Users/thomassmith/Documents/MSc courses/STAT 545A/Assignment/hw05-tsmith93/hw05-tsmith93/asia_reorder.rds') #export to RDS"
+"0","asia_reorder_RDS <- readRDS('/Users/thomassmith/Documents/MSc courses/STAT 545A/Assignment/hw05-tsmith93/hw05-tsmith93/asia_reorder.rds') #import same RDS"
+"0","identical(asia_reorder, asia_reorder_RDS) #test if two files are the same "
+"1","[1]"
+"1"," TRUE"
+"1","
+"

@@ -1,0 +1,7 @@
+"0","ggplot(oceania_gone, aes(continent)) +"
+"0","  geom_bar() +"
+"0","  scale_x_discrete(drop = FALSE) + #FALSE will plot all existing levels, even if they are empty"
+"0","  ylab(""Number of countries"") +"
+"0","  xlab(""Continent"") +"
+"0","  ggtitle(""Country count per continent"") +"
+"0","  theme_classic()"

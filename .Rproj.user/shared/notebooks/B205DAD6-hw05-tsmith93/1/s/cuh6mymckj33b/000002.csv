@@ -1,0 +1,5 @@
+"0","nrow(gapminder[gapminder$continent == ""Oceania"",])"
+"1","[1]"
+"1"," 24"
+"1","
+"

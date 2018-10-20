@@ -1,0 +1,3 @@
+"0","#we will used sapply to return a matrix of variable classes in gapminder"
+"0","sapply(gapminder, class) %>% "
+"0","  kable()"

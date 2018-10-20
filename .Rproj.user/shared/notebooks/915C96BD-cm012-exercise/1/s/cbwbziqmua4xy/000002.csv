@@ -1,0 +1,6 @@
+"0","select_countries <- c(""Sweden"", ""Denmark"", ""Norway"", ""Germany"", ""Austria"")"
+"0","gap_select <- gapminder %>% "
+"0","  filter(country %in% select_countries) %>% "
+"0","  droplevels()"
+"0","ggplot(gap_select, aes(year, lifeExp)) +"
+"0","  geom_line(aes(group=country, colour=country))"

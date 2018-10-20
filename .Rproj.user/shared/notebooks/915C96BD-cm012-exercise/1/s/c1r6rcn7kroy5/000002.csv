@@ -1,0 +1,8 @@
+"0","```r
+data.frame(x=c(\"A\", \"B\")) %>% 
+  str()
+
+```"
+"1","'data.frame':	2 obs. of  1 variable:
+ $ x: Factor w/ 2 levels \"A\",\"B\": 1 2
+"

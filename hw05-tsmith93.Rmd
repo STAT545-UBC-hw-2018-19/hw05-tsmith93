@@ -408,9 +408,11 @@ Wow, another great looking plot. But I think we can display the data from these 
 
 #### 3.2 plotly figures
 
+As plotly figures seem to embed oddly in github, please look at [this](https://plot.ly/~tsmith93/5/#/) link for my plotly
+
 ```{r}
 #select scandinavia data
-plot_ly(scandinavia, 
+(three_axes <- plot_ly(scandinavia, 
 #assign a variable to the x, y, and z axes        
         x = ~year, 
         y = ~lifeExp, 
@@ -419,7 +421,7 @@ plot_ly(scandinavia,
         type = "scatter3d",
 #specify the type of markers and look of them
         mode = "markers",
-        opacity = 0.2)
+        opacity = 0.2))
 ```
 
 What an efficient way of putting all the data together. Try moving the figure around with your mouse! Its interactive!

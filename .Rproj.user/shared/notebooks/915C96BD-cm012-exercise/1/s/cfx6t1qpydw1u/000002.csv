@@ -1,0 +1,3 @@
+"0","cont %>% "
+"0","  fct_collapse(""combo"" = c(""Europe"", ""Asia"")) %>% "
+"0","  qplot() "

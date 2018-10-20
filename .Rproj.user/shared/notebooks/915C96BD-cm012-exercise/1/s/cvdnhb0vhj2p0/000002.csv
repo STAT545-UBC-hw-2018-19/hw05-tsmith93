@@ -1,0 +1,6 @@
+"0","gap_africa <- gapminder %>% "
+"0","    filter(continent == ""Africa"")"
+"0","gap_africa %>% "
+"0","    mutate(country = fct_lump(country)) %>% "
+"0","    ggplot(aes(country, lifeExp)) +"
+"0","    geom_violin()"

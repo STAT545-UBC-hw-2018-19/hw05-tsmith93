@@ -1,0 +1,4 @@
+"0","gap_select%>% "
+"0","  mutate(country = fct_reorder2(country, year, lifeExp)) %>% "
+"0","  ggplot(aes(year, lifeExp)) +"
+"0","  geom_line(aes(colour=country))"

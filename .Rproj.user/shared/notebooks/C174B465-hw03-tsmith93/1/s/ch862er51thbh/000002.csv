@@ -1,0 +1,5 @@
+"0","gapminder %>% "
+"0","#Let's just look at Asia's data using filter  "
+"0","  filter(continent == ""Asia"") %>% "
+"0","#Arrange the data from lowest gdpPercap to highest  "
+"0","  arrange(gdpPercap)"

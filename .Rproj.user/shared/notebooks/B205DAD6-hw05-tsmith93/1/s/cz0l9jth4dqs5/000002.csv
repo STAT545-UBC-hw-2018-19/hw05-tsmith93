@@ -1,0 +1,4 @@
+"0","#suppressPackageStartupMessages stops unecessary messages from popping up"
+"0","suppressPackageStartupMessages(library(tidyverse))"
+"0","suppressPackageStartupMessages(library(gapminder))"
+"0","suppressPackageStartupMessages(library(knitr))"

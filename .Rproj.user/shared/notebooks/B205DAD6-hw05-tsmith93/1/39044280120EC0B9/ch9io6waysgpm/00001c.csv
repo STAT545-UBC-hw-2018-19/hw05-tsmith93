@@ -1,0 +1,10 @@
+"0","china <- ggplot(aes(x = year, y = lifeExp )) +
+  geom_line() +  #plot flow
+  geom_line(aes(y = gdpPercap), colour = ""blue"", size =1.5) +  
+  scale_y_continuous(expand = c(0,0), limits = c(50,200)) +  
+  labs(x = ""Date"", y = ""River flow (m/s)"") +
+g.bottom
+"
+"2","Error: `data` must be a data frame, or other object coercible by `fortify()`, not an S3 object with class uneval
+Did you accidentally pass `aes()` to the `data` argument?
+"

@@ -1,0 +1,13 @@
+"0","write_csv(asia_reorder, ""asia_reorder.csv"")"
+"0","#Reading new data set back in"
+"0","(gap_read <- read_csv(""asia_reorder.csv""))"
+"2","Parsed with column specification:
+cols(
+  country = col_character(),
+  continent = col_character(),
+  year = col_integer(),
+  lifeExp = col_double(),
+  pop = col_integer(),
+  gdpPercap = col_double()
+)
+"

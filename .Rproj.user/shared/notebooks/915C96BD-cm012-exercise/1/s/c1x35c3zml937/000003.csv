@@ -1,0 +1,2 @@
+"0","iris %>% "
+"0","  mutate(Species = ifelse(Species == ""versicolor"", ""vers"", Species))"

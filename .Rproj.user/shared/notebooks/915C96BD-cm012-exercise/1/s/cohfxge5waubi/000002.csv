@@ -1,0 +1,2 @@
+"0","gap_small <- gapminder %>% "
+"0","  filter(pop < 250000)"

@@ -1,0 +1,2 @@
+"0","fct_count(no_oceania$continent) %>% "
+"0","  kable()"

@@ -1,0 +1,4 @@
+"0","gapminder %>% "
+"0","  mutate(continent = fct_reorder(continent, lifeExp)) %>% "
+"0","  ggplot(aes(continent, lifeExp)) +"
+"0","  geom_boxplot()"

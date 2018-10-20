@@ -1,0 +1,289 @@
+---
+title: "hw04-tsmith93"
+author: "Thomas Smith"
+date: '2018-10-09'
+output: github_document
+---
+##Overview
+
+- Assignment introduction
+- Load Packages
+- Task Selection
+
+###Assignment introduction
+
+For this assignment, the focus is to refine our data wranglign skills. Specifically, we are hoping to fortify the bridge between data aggregation and data reshaping. 
+
+###Loading packages
+
+If you haven't already done so, download both gapminder and tidyverse using `install.packages()` 
+
+Next load gapminder, tidyverse and knitr:
+
+```{r Load tidyverse, gapminder, knitr}
+#suppressPackageStartupMessages stops unecessary messages from popping up
+suppressPackageStartupMessages(library(tidyverse))
+suppressPackageStartupMessages(library(gapminder))
+suppressPackageStartupMessages(library(knitr))
+```
+
+###Task selection
+For this assignment, there are two over-arching themes. The first is "Data Reshaping Prompts (and relationship to aggregation)" and the second one is "Join Prompts (join, merge, look up)". For the first theme, I am selecting Task 5: Data manipulation sampler. For the second theme, I am selecting Task 2: Create your own cheatsheet. 
+
+##Tibble play
+
+###Objectives
+- Make a tibble with one row per year and columns for life expectancy for two or more countries.
+- Use knitr::kable() to make this table look pretty in your rendered homework.
+- Take advantage of this new data shape to scatterplot life expectancy for one country against that of another.
+
+###Make a tidy table 
+
+First we want to filter out the specific dat we are wanting. For this example, let's just look at Scandinavian countries, as well as their life expectancies and correspondign years.
+
+```{r}
+#Create an object called 'scandinavia' to store the desired data 
+scandinavia <- 
+  #call upon the gapminder dataset
+  gapminder %>%
+  #Filter so that we are only using Canada, Russia, Japan, and United States
+  filter(country=="Finland" | country == "Norway" | country == "Sweden" | country == "Iceland" | country == "Denmark") %>% 
+  #Mae table cleaner by rounding the life expectancies off the nearest integer
+  mutate(lifeExp = round(lifeExp, 0)) %>% 
+  #Select the columns country, year and life expectancy
+  select(country, year, lifeExp)
+
+  #Make a tidy table using the 'kable' function, rename column headings
+  kable(scandinavia, col.names = c("Country", "Year", "Life expectancy (years)"))
+```
+
+###Reshape time - wide form!
+
+Lets make this data easier to read.
+```{r}
+#switch data from tidy to wide form using spread() and specify the key and value, or collumn titles and values
+spread(scandinavia, key = "country", value = "lifeExp") %>% 
+  #Use kable to give the table nice and clean names
+  kable(col.names = c("Year", "Finland", "Norway", "Sweden", "Iceland", "Denmark"))
+```
+
+It appears that the life expectancy for all of these countries has increased over time.
+
+###Display data in scatterplot
+
+First, grammar!
+
+| Grammar Component     | Specification |
+|-----------------------|---------------|
+| __data__              | `gapminder` | 
+| __aesthetic mapping__ | `x`and `y` |
+| __geometric object__  | point & line |
+| scale                 | linear  |
+| statistical transform | none |
+| coordinate system     | rectangular |
+| facetting             | none |
+
+```{r}
+#call upon object 'scandinavia'
+scandinavia %>% 
+  #use ggplot with 'year' and 'lifeExp' as x and y
+  ggplot(aes(year, lifeExp)) +
+  #add a scatterplot with point colour specified by country
+  geom_point(aes(colour= country)) +
+  #add a title
+  ggtitle("Life Expectancies in Scandinavia (1952-2007)") +
+  geom_smooth(method = lm, se = FALSE, aes(colour = country)) +
+  #add x and y labels
+  xlab("Year") +
+  ylab("Life expectancy (years)") +
+  #clean up the aesthetic of the plot!
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_blank(),
+  axis.line = element_line(colour = "black")) 
+```
+
+What a nice way to look at the data :) You can see from this graph that the life expectancy in Finland was the lowest at first, but it has increased the most rapidly. It appears the life expectancy in Denmark has increased the slowest. Overall, life expectancy in Scandinavian countries in 2007 was the late 70s - early 80s.
+
+##Join prompts cheatsheet - Favourite vocalists example
+
+###The data
+We will create two small dataframes, `vocalists` and `labels`, to start off:
+
+```{r}
+#assign a name to the dataframes first, followed by the collumn names, and then the contained data
+vocalists <- "
+Name, Gender, Genre, Label
+Celine, female, pop, Columbia
+Eddie, male, rock, Republic
+Florence, female, rock, Republic,
+Whitney, female, pop, RCA
+Mariah, female, pop, Columbia
+Freddie, male, rock, Columbia
+Robert, male, rock, Atlantic
+"
+#make the datframe into a csv
+vocalists <- read_csv(vocalists, skip = 1)
+
+#repeat for second dataframe
+labels <- "
+Label, Year Founded
+Columbia, 1887
+RCA, 1901
+Republic, 1995
+Arista, 1974
+"
+
+labels <- read_csv(labels, skip = 1)
+
+kable(vocalists)
+kable(labels)
+
+```
+
+###Mutating joins
+
+These combine variables from the two dataframes
+
+####Inner joins
+
+>Return all rows from x where there are matching values in y, and all columns from x and y. If there are multiple matches between x and y, all combination of the matches are returned.
+
+#####Vocalists = x, labels = y
+
+```{r}
+(ijvl <- inner_join(vocalists, labels)) %>% 
+#pipe into kable function for a nice clean look!  
+ kable()
+#note that joining, by = "Label" is telling you that the dataframes are being joined by the variable "Label"
+```
+
+For this, we lose Robert because even though he is in `vocalists`, his label is not in `labels`. We also lose Arista from `labels`, as it is not present in `vocalists`. Though, the join has all variables present in both dataframes.
+
+#####Labels = x, vocalists = y
+
+```{r}
+(ijlv <- inner_join(labels, vocalists)) %>% 
+  kable()
+```
+
+For this, we again lose Robert and Arista. Also this time, the variables in `labels` appear first.
+
+####Left joins
+
+>Return all rows from x, and all columns from x and y. Rows in x with no match in y will have NA values in the new columns. If there are multiple matches between x and y, all combinations of the matches are returned.
+
+#####Vocalists = x, labels = y
+
+```{r}
+(ljvl <- left_join(vocalists, labels)) %>% 
+  kable()
+```
+
+For this, we lose Arista as it is not present in `vocalists` (the x dataframe), and NA appears in Year Founded for Atlantic records, as this data does not exist.
+
+#####Labels = x, vocalists = y
+
+```{r}
+(ljlv <- left_join(labels, vocalists)) %>% 
+ kable()
+```
+
+For this, collumns present in `labels` is presented first, Robert is lost as he is not present in `labels`. As well for Arista, NA appears for "Name", "Gender", and "Genre" as this information does not exist in the dataframe `labels`.
+
+####Right joins
+
+>Return all rows from y, and all columns from x and y. Rows in y with no match in x will have NA values in the new columns. If there are multiple matches between x and y, all combinations of the matches are returned.
+
+#####Vocalists = x, labels = y
+
+```{r}
+(rjvl <- right_join(vocalists, labels)) %>% 
+ kable()
+```
+
+The same data is returned as left_join(labels, vocalists), though the order of data from the two dataframes is reversed.
+
+#####Labels = x, vocalists = y
+
+```{r}
+(rjlv <- right_join(labels, vocalists)) %>% 
+ kable()
+```
+
+The same data is returned as left_join(vocalists, labels), though the order of data from the two dataframes is reversed.
+
+####Full join
+
+>Return all rows and all columns from both x and y. Where there are not matching values, returns NA for the one missing.
+
+```{r}
+(fjlv <- full_join(vocalists, labels)) %>% 
+ kable()
+```
+
+All the data from both dataframes is presented, and NA is present where there is no crossover data.
+
+###Filtering joins
+
+These keep cases from the left-hand dataframe
+
+####Semi joins
+
+>Return all rows from x where there are matching values in y, keeping just columns from x.
+
+>A semi join differs from an inner join because an inner join will return one row of x for each matching row of y, where a semi join will never duplicate rows of x.
+
+#####Vocalists = x, labels = y
+
+```{r}
+(sjvl <- semi_join(vocalists, labels)) %>% 
+ kable()
+```
+
+We lose Robert here, similar to the inner join, but the variable year in `label` is not returned.
+
+#####Labels = x, vocalists = y
+
+```{r}
+(sjlv <- semi_join(labels, vocalists)) %>% 
+  kable()
+```
+
+We lose Arista, as it is not present n `vocalists` and only columns from `labels` are kept.
+
+####Anti joins
+
+>Return all rows from x where there are not matching values in y, keeping just columns from x.
+
+#####Vocalists = x, labels = y
+
+```{r}
+(ajvl <- anti_join(vocalists, labels)) %>% 
+ kable()
+```
+
+Only Robert is kept, as Atlanic is not present in `labels`.
+
+#####Labels = x, vocalists = y
+
+```{r}
+(ajlv <- anti_join(labels, vocalists)) %>% 
+ kable()
+```
+
+Only Arista is kept, as it is not present in `vocalists`.
+
+###Merge
+
+>Merge two data frames by common columns or row names, or do other versions of database join operations.
+  
+```{r}
+merge(labels, vocalists) %>% 
+  #Again use kable to make a clean table
+  kable()
+```
+
+Data from Robert, who is associated with Atlantic, and Arista are lost, as those labels are not common for both dataframes. 
+
+##Conclusion
+
+Very fun exercises there! I hope you learnt something from this assignment :)

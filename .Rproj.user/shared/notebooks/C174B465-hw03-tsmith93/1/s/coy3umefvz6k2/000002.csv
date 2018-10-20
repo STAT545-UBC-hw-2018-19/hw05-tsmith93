@@ -1,0 +1,15 @@
+"0","#call upton gapminder"
+"0","gapminder %>% "
+"0","#Next we wantto group the table by continent  "
+"0","  group_by(continent) %>% "
+"0","#Make the table look clean by rounding to 2 decimal places  "
+"0","  mutate_each(funs(round(.,2)), gdpPercap) %>% "
+"0","#Now summarize the data, so only minimum and maximum gdpPercap are shown  "
+"0","  summarize(minimum = min(gdpPercap),"
+"0","  maximum =max(gdpPercap)) %>% "
+"0","#And finally, oresent data in a clean looking table with clear collumn names  "
+"0","  kable(col.names = c(""Continent"", "" Minimum GDP per Capita ($)"", ""Maximum GDP per Capita ($)""))  "
+"2","`mutate_each()` is deprecated.
+Use `mutate_all()`, `mutate_at()` or `mutate_if()` instead.
+To map `funs` over a selection of variables, use `mutate_at()`
+"
