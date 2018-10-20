@@ -5,7 +5,8 @@
 1. The [RProj.](https://github.com/STAT545-UBC-students/hw05-tsmith93/blob/master/hw05-tsmith93.Rproj) file
 2. An [Rmd](https://github.com/STAT545-UBC-students/hw05-tsmith93/blob/master/hw05-tsmith93.Rmd) file of the assignment
 3. A [md](https://github.com/STAT545-UBC-students/hw05-tsmith93/blob/master/hw05-tsmith93.md) file of the assignment
-4. Various other files that can be ignored, as they are presented in the two previous linked files!
+4. A [folder](https://github.com/STAT545-UBC-students/hw05-tsmith93/tree/master/hw05-tsmith93_files/figure-markdown_github) with figures
+5. Various other files that can be ignored, as they are presented in the two previous linked files!
 
 A description of the assignment will be easily found at the beginning of the .md file!
 
