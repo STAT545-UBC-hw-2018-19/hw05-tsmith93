@@ -558,7 +558,7 @@ ggsave("scandinavia_plot.jpg", scandinavia_plot)
 
     ## Saving 7 x 5 in image
 
-![scandinavia plot](/Users/thomassmith/Documents/MSc%20courses/STAT%20545A/Assignment/hw05-tsmith93/hw05-tsmith93/scandinavia_plot.jpg)
+![scandinavia plot](https://github.com/STAT545-UBC-students/hw05-tsmith93/blob/master/scandinavia_plot.png?raw=true)
 
 Lets make it look nicer!
 
@@ -566,7 +566,7 @@ Lets make it look nicer!
 ggsave("scandinavia_plot_nice.jpg", plot = scandinavia_plot, device = "jpg", width = 6, height = 4, units = "in", dpi = 300)
 ```
 
-![fancy scandinavia plot](/Users/thomassmith/Documents/MSc%20courses/STAT%20545A/Assignment/hw05-tsmith93/hw05-tsmith93/scandinavia_plot_nice.jpg)
+![fancy scandinavia plot](https://github.com/STAT545-UBC-students/hw05-tsmith93/blob/master/scandinavia_plot_nice.jpg?raw=true)
 
 #### 4.2 Save to .png
 
